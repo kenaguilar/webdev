@@ -1,0 +1,105 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<<html lang="en">
+<head>
+  <title>mysite</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>PHOTO GALLERY</h1>
+  <p>Sample pictures of some famous location on Earth.</p> 
+</div>
+
+<div id="slider">
+<figure>
+	
+<img src="images/eiffeltower.jpg">
+<img src="images/greatwall.jpg">
+<img src="images/towerofpisa.jpg">
+<img src="images/pyramidsofgiza.jpg">
+<img src="images/tajmahal.jpg">
+
+
+</figure>
+
+<button class="btn-prev"><i class="fa fa-arrow-circle-left"></i> </button>
+<button class="btn-next"><i class="fa fa-arrow-circle-right"></i> </button>
+
+</div>
+</html>
+
+
+
+<script>
+	$(document).ready(function(){
+		var x = 0;
+    // for next slide
+		$('.btn-next').click(function(){
+    
+        x= (x<=300)?(x+100):0;
+      $('figure').css('left', -x+'%');
+		});
+
+
+     // for prev slide
+     $('.btn-prev').click(function(){
+    
+        x= (x>=100)?(x-100):400;
+      $('figure').css('left', -x+'%');
+    });
+	});
+</script>
+
+<style>
+
+
+#slider{
+    width: 60%;
+    height:600px;
+    margin:50px auto;
+    box-shadow: 0px 0px 20px 3px grey;
+    position: relative;
+	background: black;
+}
+
+
+	div#slider { overflow: hidden; border: 5px solid #white; }
+	div#slider figure img { width: 20%; height:100%;  float: left; }
+	div#slider figure { 
+	position: relative;
+	width: 500%;
+	margin: 0;
+	left: 0;
+	transition: 1s ease-in-out;
+  
+ 
+}
+
+.btn-next, .btn-prev{
+  position: absolute;
+  top: 40%;
+  cursor: pointer;
+  color: white;
+  background: black;
+  padding: 10px;
+  font-size: 50px;
+  border:none;
+}
+
+.btn-prev{
+  left: 0px;
+}
+.btn-next{
+  right: 0px;
+}
+
+
+</style>
